@@ -1,10 +1,12 @@
-import pyttsx3
+from gtts import gTTS
 
-# This sets up the talking engine
-engine = pyttsx3.init()
+# 1. Type the text you want the human voice to say
+my_text = "Hello friend! Do I sound much better now? This voice is generated using Google's cloud system, making it sound like a real person instead of a clunky robot."
 
-# We save the voice to an audio file so we can hear it in the browser!
-engine.save_to_file("Hello friend! Your GitHub setup is completely finished and working!", "voice_output.mp3")
-engine.runAndWait()
+# 2. Tell the system to create a natural English voice
+speech = gTTS(text=my_text, lang='en', slow=False)
 
-print("Success! I created a file named voice_output.mp3 inside your folder.")
+# 3. Save the new realistic voice file
+speech.save("human_voice.mp3")
+
+print("Success! I created a realistic voice file named human_voice.mp3.")
