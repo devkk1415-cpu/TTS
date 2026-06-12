@@ -1,32 +1,21 @@
 import os
-import sys
-import torch
-from TTS.api import TTS
+from gtts import gTTS
 
-def generate_multilingual_speech(text: str, lang: str, speaker_audio: str, output_path: str):
-    print("🤖 Loading multilingual TTS model... (This may take a minute)")
-    # Force CPU usage since free GitHub Codespaces do not have a GPU
-    device = "cpu"
-    tts = TTS("tts_models/multilingual/multi-dataset/xtts_v2").to(device)
-
-    print(f"🎙️ Generating speech in [{lang}]...")
-    tts.tts_to_file(
-        text=text,
-        speaker_wav=speaker_audio,
-        language=lang,
-        file_path=output_path
-    )
+def generate_speech(text: str, lang: str, output_path: str):
+    print(f"🤖 Generating speech in language code: [{lang}]...")
+    
+    # This creates the text-to-speech using standard AI voices
+    tts = gTTS(text=text, lang=lang, slow=False)
+    
+    # Saves the file to your computer/cloud
+    tts.save(output_path)
     print(f"✨ Audio successfully saved to: {output_path}")
 
 if __name__ == "__main__":
-    # EDIT THESE THREE LINES TO CHANGE TEXT OR LANGUAGE
-    SAMPLE_TEXT = "Hello! This is a test running completely on GitHub cloud."
-    LANGUAGE = "en"  # Options include: en, es, fr, de, it, ja, zh, hi
-    REFERENCE_AUDIO = "sample_voice.wav"
-    OUTPUT_FILE = "output.wav"
+    # EDIT THESE TWO LINES TO CHANGE THE TEXT AND LANGUAGE
+    SAMPLE_TEXT = "Hello! This is a simple text to speech program running completely on GitHub."
+    LANGUAGE = "en"  # Examples: 'en' (English), 'es' (Spanish), 'fr' (French), 'hi' (Hindi)
+    
+    OUTPUT_FILE = "output.mp3"
 
-    if not os.path.exists(REFERENCE_AUDIO):
-        print(f"❌ Error: Please upload a 5-second '{REFERENCE_AUDIO}' file to your repository.")
-        sys.exit(1)
-
-    generate_multilingual_speech(SAMPLE_TEXT, LANGUAGE, REFERENCE_AUDIO, OUTPUT_FILE)
+    generate_speech(SAMPLE_TEXT, LANGUAGE, OUTPUT_FILE)
