@@ -1,2 +1,4 @@
-pyttsx3
-gtts
+torch>=2.0.0 --extra-index-url https://pytorch.org
+coqui-tts>=0.22.0
+numpy<2.0.0
+soundfile
