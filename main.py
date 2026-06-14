@@ -19,7 +19,7 @@ if __name__ == "__main__":
     
     # 1. SELECT YOUR MALE VOICE HERE:
     # For English (US Male), use: "en-US-BrianNeural" or "en-US-ChristopherNeural"
-    # For Hindi (India Male), use: "hi-IN-MadhuramNeural"
+    # For Hindi (India Male), use: "hi-IN-MadhurNeural" 
     SELECTED_VOICE = "en-US-BrianNeural" 
     
     # 2. PASTE YOUR LONG TEXT HERE (Can be 6 to 10 minutes long):
