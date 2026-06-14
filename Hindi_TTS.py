@@ -5,8 +5,7 @@ import edge_tts
 SELECTED_VOICE = "hi-IN-MadhurNeural"
 OUTPUT_FILE = "hindi_narration_output.mp3"
 
-SAMPLE_TEXT = """
-""**भगवद्गीता – अध्याय 1, श्लोक 4**
+SAMPLE_TEXT = """**भगवद्गीता – अध्याय 1, श्लोक 4**
         **विस्तृत सिनेमाई हिंदी वाचन (लगभग 5 मिनट)**
 
         **वाचक (गंभीर, गूंजती हुई आवाज़ में):**
